@@ -42,11 +42,13 @@ Unlike conventional task management solutions, **SWARM-X is designed as a univer
 git clone https://github.com/LazyanArtyom/swarm-x.git
 cd swarm-x
 
-# Build the Project
-mkdir build && cd build
-cmake ..
-make -j$(nproc)
+# Debug build
+mkdir -p build/debug
+cmake -S . -B build/debug -DCMAKE_BUILD_TYPE=Debug
+cmake --build build/debug
 
-# Run SWARM-X
-./swarmx
+# Release build
+mkdir -p build/release
+cmake -S . -B build/release -DCMAKE_BUILD_TYPE=Release
+cmake --build build/release
 ```
